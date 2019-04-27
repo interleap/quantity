@@ -1,18 +1,25 @@
 package com.example.quantity;
 
+import java.util.Objects;
+
 public class Kilogram {
 
-    public Kilogram(double quantity) {
+    private double value;
 
+    public Kilogram(double value) {
+
+        this.value = value;
     }
 
     @Override
     public int hashCode() {
-        return 1;
+        return Objects.hash(value);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return true;
+    public boolean equals(Object other) {
+        if(getClass() != other.getClass()) return false;
+        Kilogram kilogram = (Kilogram) other;
+        return this.value == kilogram.value;
     }
 }
