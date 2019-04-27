@@ -11,14 +11,15 @@ public class Kilogram {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Kilogram kilogram = (Kilogram) o;
+        return Double.compare(kilogram.value, value) == 0;
     }
 
     @Override
-    public boolean equals(Object other) {
-        if(other == null || getClass() != other.getClass()) return false;
-        Kilogram kilogram = (Kilogram) other;
-        return this.value == kilogram.value;
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
