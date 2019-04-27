@@ -7,7 +7,6 @@ public class Kilogram {
     private double value;
 
     public Kilogram(double value) {
-
         this.value = value;
     }
 
@@ -18,7 +17,7 @@ public class Kilogram {
 
     @Override
     public boolean equals(Object other) {
-        if(getClass() != other.getClass()) return false;
+        if(other == null || getClass() != other.getClass()) return false;
         Kilogram kilogram = (Kilogram) other;
         return this.value == kilogram.value;
     }

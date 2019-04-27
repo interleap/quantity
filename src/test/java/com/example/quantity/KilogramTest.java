@@ -7,19 +7,24 @@ import static org.junit.jupiter.api.Assertions.*;
 public class KilogramTest {
 
     @Test
-    public void tenKilogramsShouldEqualAnother10Kilograms(){
+    public void shouldEqualAnotherKilogramObjectWithSameValue(){
         assertEquals(new Kilogram(10), new Kilogram(10));
     }
 
 
     @Test
-    public void sevenKilogramsShouldNotEqualTenKilograms(){
+    public void shuoldNotEqualAnotherKilogramObjectWithDifferentValue(){
         assertNotEquals(new Kilogram(10), new Kilogram(7));
     }
 
     @Test
-    public void sevenKilogramsShouldNotEqualAString(){
+    public void shouldNotEqualAString(){
         assertNotEquals(new Kilogram(10), "string");
+    }
+
+    @Test
+    public void shouldNotEqualNull(){
+        assertNotEquals(new Kilogram(10), null);
     }
 
 }
