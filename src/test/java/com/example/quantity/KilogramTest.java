@@ -32,4 +32,10 @@ public class KilogramTest {
         assertEquals(new Kilogram(20), new Kilogram(15).add(new Kilogram(5)));
     }
 
+    @Test
+    public void additionOfMultipleKilogramObjectsShouldProduceSumOfValues(){
+        assertEquals(new Kilogram(10), new Kilogram(2).add(new Kilogram(5)).add(new Kilogram(3)));
+    }
+
+
 }

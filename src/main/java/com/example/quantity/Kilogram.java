@@ -24,6 +24,6 @@ public class Kilogram {
     }
 
     public Kilogram add(Kilogram kilogram) {
-        return new Kilogram(20);
+        return new Kilogram(value + kilogram.value);
     }
 }
