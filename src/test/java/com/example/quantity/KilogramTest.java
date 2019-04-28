@@ -27,4 +27,9 @@ public class KilogramTest {
         assertNotEquals(new Kilogram(10), null);
     }
 
+    @Test
+    public void additionOfAnotherKilogramObjectShouldProduceSumOfValues(){
+        assertEquals(new Kilogram(20), new Kilogram(15).add(new Kilogram(5)));
+    }
+
 }
