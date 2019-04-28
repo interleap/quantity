@@ -2,20 +2,22 @@ package com.example.quantity;
 
 import java.util.Objects;
 
-public class Kilogram {
+public class Weight {
 
     private double value;
+    private Unit unit;
 
-    public Kilogram(double value) {
+    public Weight(double value, Unit unit) {
         this.value = value;
+        this.unit = unit;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Kilogram kilogram = (Kilogram) o;
-        return Double.compare(kilogram.value, value) == 0;
+        Weight weight = (Weight) o;
+        return Double.compare(weight.value, value) == 0;
     }
 
     @Override
@@ -23,7 +25,7 @@ public class Kilogram {
         return Objects.hash(value);
     }
 
-    public Kilogram add(Kilogram kilogram) {
-        return new Kilogram(value + kilogram.value);
+    public Weight add(Weight weight) {
+        return new Weight(value + weight.value, Unit.Kilogram);
     }
 }
