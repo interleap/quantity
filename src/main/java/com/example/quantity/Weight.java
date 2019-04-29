@@ -2,6 +2,8 @@ package com.example.quantity;
 
 import java.util.Objects;
 
+import static java.lang.Math.abs;
+
 public class Weight {
 
     private double value;
@@ -17,7 +19,19 @@ public class Weight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Weight weight = (Weight) o;
-        return Double.compare(weight.value, value) == 0;
+        return areMagnitudesEqualInBaseUnit(weight);
+    }
+
+    private boolean areMagnitudesEqualInBaseUnit(Weight weight) {
+        return equalToThousandthPlace(toBaseUnit(weight.unit, weight.value), toBaseUnit(unit, value));
+    }
+
+    private boolean equalToThousandthPlace(double firstValue, double secondValue) {
+        return abs(firstValue - secondValue) < .001;
+    }
+
+    private double toBaseUnit(Unit unit, double value) {
+        return unit.scale * value;
     }
 
     @Override
@@ -26,6 +40,6 @@ public class Weight {
     }
 
     public Weight add(Weight weight) {
-        return new Weight(value + weight.value, Unit.Kilogram);
+        return new Weight(value + weight.value, unit);
     }
 }

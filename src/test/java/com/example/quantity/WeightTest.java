@@ -37,5 +37,8 @@ public class WeightTest {
         assertEquals(new Weight(10, Unit.Kilogram), new Weight(2, Unit.Kilogram).add(new Weight(5, Unit.Kilogram)).add(new Weight(3, Unit.Kilogram)));
     }
 
-
+    @Test
+    public void shouldBeAbleToCompareWeightsOfDifferentUnits(){
+        assertEquals(new Weight(10500, Unit.Gram), new Weight(10.5, Unit.Kilogram));
+    }
 }
