@@ -31,7 +31,11 @@ public class Weight {
     }
 
     private double toBaseUnit(Unit unit, double value) {
-        return unit.scale * value;
+        return value * unit.scale;
+    }
+
+    private double fromBaseUnit(Unit unit, double value) {
+        return value / unit.scale;
     }
 
     @Override
@@ -40,6 +44,8 @@ public class Weight {
     }
 
     public Weight add(Weight weight) {
-        return new Weight(value + weight.value, unit);
+        double valueInBaseUnit = toBaseUnit(unit, value) + toBaseUnit(weight.unit, weight.value);
+        return new Weight(fromBaseUnit(unit, valueInBaseUnit), unit);
     }
+
 }
