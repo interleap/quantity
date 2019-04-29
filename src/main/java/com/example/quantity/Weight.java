@@ -23,14 +23,14 @@ public class Weight {
     }
 
     private boolean areMagnitudesEqualInBaseUnit(Weight weight) {
-        return equalToThousandthPlace(toBaseUnit(weight.unit, weight.value), toBaseUnit(unit, value));
+        return equalToThousandthPlace(weight.toBaseUnit(), toBaseUnit());
     }
 
     private boolean equalToThousandthPlace(double firstValue, double secondValue) {
         return abs(firstValue - secondValue) < .001;
     }
 
-    private double toBaseUnit(Unit unit, double value) {
+    private double toBaseUnit() {
         return value * unit.scale;
     }
 
@@ -44,7 +44,7 @@ public class Weight {
     }
 
     public Weight add(Weight weight) {
-        double valueInBaseUnit = toBaseUnit(unit, value) + toBaseUnit(weight.unit, weight.value);
+        double valueInBaseUnit = toBaseUnit() + weight.toBaseUnit();
         return new Weight(fromBaseUnit(unit, valueInBaseUnit), unit);
     }
 
