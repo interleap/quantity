@@ -24,12 +24,12 @@ public class WeightTest {
 
     @Test
     public void shouldNotEqualNull(){
-        assertNotEquals(new Weight(10, Unit.Kilogram), null);
+        assertNotEquals(new Weight(10, Unit.Gram), null);
     }
 
     @Test
-    public void additionOfAnotherKilogramObjectShouldProduceSumOfValues(){
-        assertEquals(new Weight(20, Unit.Kilogram), new Weight(15, Unit.Kilogram).add(new Weight(5, Unit.Kilogram)));
+    public void additionOfAnotherWeightWithSameTypeShouldProduceWeightWithSumOfValues(){
+        assertEquals(new Weight(20, Unit.Gram), new Weight(15, Unit.Gram).add(new Weight(5, Unit.Gram)));
     }
 
     @Test
